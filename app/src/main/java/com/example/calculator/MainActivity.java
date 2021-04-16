@@ -1,3 +1,4 @@
+
 package com.example.calculator;
 
 import android.os.Bundle;
@@ -47,14 +48,14 @@ public class MainActivity extends AppCompatActivity {
     public void onPress(View v){
         Button b=(Button)v;
         TextView t2=(TextView)findViewById(R.id.textView);
-        if(flag_equal){
+        if(flag_equal && !b.getText().toString().equals("/") && !b.getText().toString().equals("*") && !b.getText().toString().equals("-") && !b.getText().toString().equals("+")){
             String s=b.getText().toString();
             t2.setText(s);
             flag_equal=false;
         }
         else {
             String s = t2.getText() + b.getText().toString();
-
+            flag_equal=false;
             t2.setText(s);
         }
     }
